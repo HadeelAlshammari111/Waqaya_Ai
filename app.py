@@ -1336,17 +1336,179 @@ hr {
 @media(max-width:800px) {
 
     .waqaya-hero {
-
-        padding:
-            35px 25px;
+        padding: 35px 25px;
     }
 
     .hero-title {
-
-        font-size:
-            1.75rem;
+        font-size: 1.75rem;
     }
 
+    /* Keep Streamlit columns readable on phones */
+    [data-testid="stHorizontalBlock"] {
+        gap: 0.8rem;
+    }
+}
+
+/* ============================================================
+   STREAMLIT TEXT VISIBILITY FIX
+   Fixes white/invisible labels on the light app background,
+   especially on iPhone / mobile browsers.
+   ============================================================ */
+
+/* Main-page widget labels */
+section.main [data-testid="stWidgetLabel"] p,
+section.main [data-testid="stWidgetLabel"] label,
+section.main [data-testid="stWidgetLabel"],
+section.main .stTextInput label,
+section.main .stNumberInput label,
+section.main .stSelectbox label,
+section.main .stRadio label,
+section.main .stSlider label,
+section.main .stDateInput label,
+section.main .stTimeInput label,
+section.main .stTextArea label,
+section.main [data-testid="stMetricLabel"] p,
+section.main [data-testid="stMetricValue"],
+section.main [data-testid="stMetricDelta"] {
+    color: #112235 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #112235 !important;
+}
+
+/* Main-page normal text/captions */
+section.main p,
+section.main span,
+section.main label {
+    opacity: 1;
+}
+
+/* Input values */
+section.main input,
+section.main textarea {
+    color: #f7f9fb !important;
+    -webkit-text-fill-color: #f7f9fb !important;
+    caret-color: #ffffff !important;
+}
+
+/* Select boxes */
+section.main div[data-baseweb="select"] > div,
+section.main div[data-baseweb="select"] span {
+    color: #f7f9fb !important;
+    -webkit-text-fill-color: #f7f9fb !important;
+}
+
+/* Number input +/- controls */
+section.main [data-testid="stNumberInput"] button,
+section.main [data-testid="stNumberInput"] button svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+/* Radio option text */
+section.main [data-testid="stRadio"] label p,
+section.main [data-testid="stRadio"] label span {
+    color: #112235 !important;
+    -webkit-text-fill-color: #112235 !important;
+}
+
+/* Buttons: keep text readable on dark/primary buttons */
+section.main .stButton button,
+section.main .stButton button p,
+section.main .stButton button span {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Expanders */
+section.main [data-testid="stExpander"] summary,
+section.main [data-testid="stExpander"] summary p,
+section.main [data-testid="stExpander"] summary span {
+    color: #112235 !important;
+    -webkit-text-fill-color: #112235 !important;
+}
+
+/* Preserve custom dark panels */
+.waqaya-hero,
+.waqaya-hero *,
+.dark-panel,
+.dark-panel *,
+.signal,
+.signal * {
+    -webkit-text-fill-color: initial;
+}
+
+.waqaya-hero,
+.waqaya-hero .hero-title,
+.waqaya-hero h1,
+.waqaya-hero h2,
+.waqaya-hero h3,
+.dark-panel,
+.dark-panel h2,
+.dark-panel h3,
+.signal,
+.signal .big {
+    color: #ffffff !important;
+}
+
+.waqaya-hero .hero-tag,
+.dark-panel > div:first-child,
+.signal > div:first-child {
+    color: #69d1b7 !important;
+}
+
+.waqaya-hero .hero-desc,
+.waqaya-hero .tech-pill {
+    color: #dce7ec !important;
+}
+
+.dark-muted {
+    color: #c8d4dc !important;
+}
+
+.signal .small {
+    color: #c8d9d4 !important;
+}
+
+/* Sidebar stays light-on-dark */
+[data-testid="stSidebar"] [data-testid="stWidgetLabel"],
+[data-testid="stSidebar"] [data-testid="stWidgetLabel"] p,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] [data-testid="stMetricLabel"] p,
+[data-testid="stSidebar"] [data-testid="stMetricValue"] {
+    color: #f5f7fa !important;
+    -webkit-text-fill-color: #f5f7fa !important;
+    opacity: 1 !important;
+}
+
+[data-testid="stSidebar"] input {
+    color: #102033 !important;
+    -webkit-text-fill-color: #102033 !important;
+}
+
+/* Better Arabic rendering */
+html[lang="ar"] body,
+.stApp {
+    text-rendering: optimizeLegibility;
+}
+
+@media(max-width:800px) {
+    section.main [data-testid="stWidgetLabel"] p,
+    section.main [data-testid="stWidgetLabel"] label,
+    section.main [data-testid="stWidgetLabel"],
+    section.main [data-testid="stMetricLabel"] p {
+        font-size: 0.95rem !important;
+        font-weight: 700 !important;
+        line-height: 1.5 !important;
+    }
+
+    .section-title {
+        font-size: 1.55rem;
+    }
+
+    .section-sub {
+        color: #657783 !important;
+    }
 }
 
 </style>
