@@ -1349,168 +1349,79 @@ hr {
     }
 }
 
-/* ============================================================
-   STREAMLIT TEXT VISIBILITY FIX
-   Fixes white/invisible labels on the light app background,
-   especially on iPhone / mobile browsers.
-   ============================================================ */
-
-/* Main-page widget labels */
-section.main [data-testid="stWidgetLabel"] p,
-section.main [data-testid="stWidgetLabel"] label,
-section.main [data-testid="stWidgetLabel"],
-section.main .stTextInput label,
-section.main .stNumberInput label,
-section.main .stSelectbox label,
-section.main .stRadio label,
-section.main .stSlider label,
-section.main .stDateInput label,
-section.main .stTimeInput label,
-section.main .stTextArea label,
-section.main [data-testid="stMetricLabel"] p,
-section.main [data-testid="stMetricValue"],
-section.main [data-testid="stMetricDelta"] {
-    color: #112235 !important;
-    opacity: 1 !important;
-    -webkit-text-fill-color: #112235 !important;
-}
-
-/* Main-page normal text/captions */
-section.main p,
-section.main span,
-section.main label {
-    opacity: 1;
-}
-
-/* Input values */
-section.main input,
-section.main textarea {
-    color: #f7f9fb !important;
-    -webkit-text-fill-color: #f7f9fb !important;
-    caret-color: #ffffff !important;
-}
-
-/* Select boxes */
-section.main div[data-baseweb="select"] > div,
-section.main div[data-baseweb="select"] span {
-    color: #f7f9fb !important;
-    -webkit-text-fill-color: #f7f9fb !important;
-}
-
-/* Number input +/- controls */
-section.main [data-testid="stNumberInput"] button,
-section.main [data-testid="stNumberInput"] button svg {
-    color: #ffffff !important;
-    fill: #ffffff !important;
-}
-
-/* Radio option text */
-section.main [data-testid="stRadio"] label p,
-section.main [data-testid="stRadio"] label span {
+/* Accessible text and inputs on light main surface */
+[data-testid="stMain"] { color: #112235; }
+[data-testid="stMain"] [data-testid="stWidgetLabel"],
+[data-testid="stMain"] [data-testid="stWidgetLabel"] p,
+[data-testid="stMain"] [data-testid="stMetricLabel"],
+[data-testid="stMain"] [data-testid="stMetricValue"] {
     color: #112235 !important;
     -webkit-text-fill-color: #112235 !important;
 }
-
-/* Buttons: keep text readable on dark/primary buttons */
-section.main .stButton button,
-section.main .stButton button p,
-section.main .stButton button span {
+/* Inputs: foreground and background must always be paired */
+[data-testid="stMain"] input,
+[data-testid="stMain"] textarea,
+[data-testid="stMain"] [data-baseweb="select"] > div {
+    background-color: #ffffff !important;
+    color: #112235 !important;
+    -webkit-text-fill-color: #112235 !important;
+}
+[data-testid="stMain"] input::placeholder,
+[data-testid="stMain"] textarea::placeholder {
+    color: #64748b !important;
+    -webkit-text-fill-color: #64748b !important;
+}
+[data-testid="stMain"] [data-baseweb="select"] span,
+[data-testid="stMain"] [data-baseweb="select"] input {
+    color: #112235 !important;
+    -webkit-text-fill-color: #112235 !important;
+}
+[data-testid="stMain"] .stButton button[kind="primary"],
+[data-testid="stMain"] .stButton button[kind="primary"] p {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
 }
-
-/* Expanders */
-section.main [data-testid="stExpander"] summary,
-section.main [data-testid="stExpander"] summary p,
-section.main [data-testid="stExpander"] summary span {
-    color: #112235 !important;
-    -webkit-text-fill-color: #112235 !important;
-}
-
-/* Preserve custom dark panels */
-.waqaya-hero,
-.waqaya-hero *,
-.dark-panel,
-.dark-panel *,
-.signal,
-.signal * {
-    -webkit-text-fill-color: initial;
-}
-
-.waqaya-hero,
-.waqaya-hero .hero-title,
-.waqaya-hero h1,
-.waqaya-hero h2,
-.waqaya-hero h3,
-.dark-panel,
-.dark-panel h2,
-.dark-panel h3,
-.signal,
-.signal .big {
-    color: #ffffff !important;
-}
-
-.waqaya-hero .hero-tag,
-.dark-panel > div:first-child,
-.signal > div:first-child {
-    color: #69d1b7 !important;
-}
-
-.waqaya-hero .hero-desc,
-.waqaya-hero .tech-pill {
-    color: #dce7ec !important;
-}
-
-.dark-muted {
-    color: #c8d4dc !important;
-}
-
-.signal .small {
-    color: #c8d9d4 !important;
-}
-
-/* Sidebar stays light-on-dark */
-[data-testid="stSidebar"] [data-testid="stWidgetLabel"],
-[data-testid="stSidebar"] [data-testid="stWidgetLabel"] p,
-[data-testid="stSidebar"] label,
-[data-testid="stSidebar"] p,
-[data-testid="stSidebar"] [data-testid="stMetricLabel"] p,
-[data-testid="stSidebar"] [data-testid="stMetricValue"] {
-    color: #f5f7fa !important;
-    -webkit-text-fill-color: #f5f7fa !important;
-    opacity: 1 !important;
-}
-
-[data-testid="stSidebar"] input {
+/* Sidebar controls have light surfaces, unlike the dark sidebar */
+[data-testid="stSidebar"] input,
+[data-testid="stSidebar"] [data-baseweb="select"] > div {
+    background: #f5f7f6 !important;
     color: #102033 !important;
     -webkit-text-fill-color: #102033 !important;
 }
-
-/* Better Arabic rendering */
-html[lang="ar"] body,
-.stApp {
-    text-rendering: optimizeLegibility;
+[data-testid="stSidebar"] [data-baseweb="select"] span {
+    color: #102033 !important;
+    -webkit-text-fill-color: #102033 !important;
 }
-
-@media(max-width:800px) {
-    section.main [data-testid="stWidgetLabel"] p,
-    section.main [data-testid="stWidgetLabel"] label,
-    section.main [data-testid="stWidgetLabel"],
-    section.main [data-testid="stMetricLabel"] p {
-        font-size: 0.95rem !important;
-        font-weight: 700 !important;
-        line-height: 1.5 !important;
+/* Preserve the intended light-on-dark presentation in custom panels */
+.waqaya-hero, .waqaya-hero .hero-title,
+.dark-panel, .dark-panel h2, .dark-panel h3,
+.signal, .signal .big { color: #ffffff !important; }
+.waqaya-hero .hero-desc { color: #dce7ec !important; }
+.waqaya-hero .hero-tag { color: #69d1b7 !important; }
+.dark-muted { color: #c8d4dc !important; }
+.signal .small { color: #c8d9d4 !important; }
+.metric-card, .risk-card, .info-panel { min-width: 0; overflow-wrap: anywhere; }
+/* Mobile-only sizing; desktop layout is unchanged */
+@media (max-width: 800px) {
+    .block-container { padding: 1rem 0.75rem 3rem !important; max-width: 100% !important; }
+    .waqaya-hero { padding: 24px 18px !important; border-radius: 17px; min-height: 0 !important; }
+    .waqaya-hero .hero-title { font-size: clamp(1.55rem, 6vw, 2rem) !important; line-height: 1.5; }
+    .waqaya-hero .hero-desc { font-size: 0.92rem; overflow-wrap: anywhere; }
+    .waqaya-hero .tech-pill { white-space: normal; overflow-wrap: anywhere; line-height: 1.8; }
+    .dark-panel { padding: 20px 16px; border-radius: 17px; }
+    .signal { padding: 20px 16px; min-height: 0; }
+    .metric-card, .risk-card, .info-panel { padding: 16px; min-height: 0; }
+    .metric-value, .risk-value { font-size: 1.5rem; overflow-wrap: anywhere; }
+    .section-title { font-size: 1.4rem; }
+    [data-testid="stHorizontalBlock"] { flex-wrap: wrap; gap: 0.75rem; }
+    [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] {
+        min-width: min(100%, 250px) !important;
+        flex: 1 1 100% !important;
+        width: 100% !important;
     }
-
-    .section-title {
-        font-size: 1.55rem;
-    }
-
-    .section-sub {
-        color: #657783 !important;
-    }
+    [data-testid="stPlotlyChart"], [data-testid="stPlotlyChart"] > div { max-width: 100%; }
+    [data-testid="stMain"] { overflow-x: clip; }
 }
-
 </style>
 """)
 
