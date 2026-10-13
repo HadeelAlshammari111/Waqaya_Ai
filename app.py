@@ -1422,8 +1422,66 @@ hr {
     [data-testid="stPlotlyChart"], [data-testid="stPlotlyChart"] > div { max-width: 100%; }
     [data-testid="stMain"] { overflow-x: clip; }
 }
+
+/* High-contrast typography on light backgrounds */
+:root { --muted: #174A55; }
+.section-sub, .metric-label, .metric-note, .risk-name,
+.footer, .notice, [data-testid="stMain"] input::placeholder,
+[data-testid="stMain"] textarea::placeholder {
+    color: #174A55 !important;
+    -webkit-text-fill-color: #174A55 !important;
+}
+[data-testid="stMain"] [data-testid="stCaptionContainer"],
+[data-testid="stMain"] [data-testid="stCaptionContainer"] p,
+[data-testid="stMain"] [data-testid="stMetricDelta"] {
+    color: #174A55 !important;
+}
+[data-testid="stMain"] [data-testid="stWidgetLabel"] p,
+[data-testid="stMain"] [data-testid="stMetricLabel"] p {
+    color: #10243F !important;
+}
+
 </style>
 """)
+
+
+# ============================================================
+# ACCESSIBLE CHART COLORS — MOBILE AND DESKTOP
+# ============================================================
+def style_waqaya_chart(fig):
+    """Ensure Plotly labels remain readable on Waqaya's light background."""
+    navy = "#10243F"
+    petrol = "#174A55"
+    fig.update_layout(
+        font=dict(family="Arial, Tahoma, sans-serif", color=navy, size=15),
+        title_font=dict(color=navy),
+        legend=dict(font=dict(color=navy, size=13),
+                    title_font=dict(color=navy)),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        hoverlabel=dict(font=dict(color=navy, size=14), bgcolor="#FFFFFF"),
+        margin=dict(l=35, r=25, t=60, b=65),
+    )
+    fig.update_xaxes(
+        tickfont=dict(color=navy, size=13),
+        title_font=dict(color=petrol, size=14),
+        automargin=True,
+    )
+    fig.update_yaxes(
+        tickfont=dict(color=navy, size=13),
+        title_font=dict(color=petrol, size=14),
+        automargin=True,
+    )
+    fig.update_annotations(font=dict(color=navy, size=13))
+    for trace in fig.data:
+        if trace.type == "indicator":
+            trace.number.font.color = navy
+            trace.title.font.color = navy
+            if trace.gauge is not None:
+                trace.gauge.axis.tickfont = dict(color=navy, size=13)
+        elif hasattr(trace, "textfont"):
+            trace.textfont = dict(color=navy, size=13)
+    return fig
 
 
 # ============================================================
@@ -2653,7 +2711,12 @@ gauge.update_layout(
 )
 
 
+style_waqaya_chart(gauge)
+
+
 st.plotly_chart(
+
+
     gauge,
     use_container_width=True
 )
@@ -2808,7 +2871,11 @@ risk_chart.update_layout(
 )
 
 
+style_waqaya_chart(risk_chart)
+
+
 st.plotly_chart(
+
 
     risk_chart,
 
@@ -3056,7 +3123,11 @@ comparison_chart.update_layout(
 )
 
 
+style_waqaya_chart(comparison_chart)
+
+
 st.plotly_chart(
+
 
     comparison_chart,
 
@@ -3533,7 +3604,11 @@ if (
     )
 
 
+    style_waqaya_chart(explain_chart)
+
+
     st.plotly_chart(
+
 
         explain_chart,
 
@@ -3736,7 +3811,11 @@ if st.button(
     )
 
 
+    style_waqaya_chart(demo_chart)
+
+
     st.plotly_chart(
+
 
         demo_chart,
 
@@ -4407,7 +4486,11 @@ with glucose_section:
         )
 
 
+        style_waqaya_chart(glucose_chart)
+
+
         st.plotly_chart(
+
 
             glucose_chart,
 
