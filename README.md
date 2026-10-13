@@ -1,107 +1,118 @@
+
 # Waqaya AI
+### AI-Powered Preventive Health Intelligence Platform
 
-## AI-Powered Preventive Health Intelligence Platform
+**From Health Data to Preventive Intelligence**
 
-**Waqaya AI** is an intelligent preventive health platform designed to analyze daily health indicators, detect unusual patterns, estimate potential health risks, and provide personalized preventive insights before small changes develop into more significant warning signs.
+Waqaya AI is an end-to-end Data Science and Machine Learning platform designed to analyze daily health indicators, identify unusual patterns, estimate potential health risks, and provide personalized preventive insights.
 
-The project combines **Data Science, Machine Learning, Explainable AI, health analytics, and interactive visualization** within a unified bilingual platform.
+The platform combines predictive modeling, anomaly detection, personal health baselines, explainable AI, and interactive dashboards within a bilingual Arabic-English application.
+
+### Live Demo
+
+**[🚀 Launch Waqaya AI](https://waqiya-ai-app.streamlit.app)**
+
+**Deployment:** Streamlit Community Cloud  
+**Status:** Deployed and accessible online  
+**Developer:** Hadeel Mohammad Alshammari  
+**Field:** Data Science | Machine Learning | AI
 
 ---
 
-## Project Overview
+## 1. Project Overview
 
-Most health applications focus on displaying isolated measurements such as heart rate, blood pressure, sleep, or daily steps.
+Traditional health applications primarily display isolated measurements such as heart rate, blood pressure, sleep duration, and daily steps.
 
-Waqaya AI takes a different approach.
+Waqaya AI explores a more intelligent approach by analyzing multiple health and lifestyle indicators together to identify meaningful changes and estimate potential risks.
 
-Instead of simply displaying health data, the platform analyzes multiple indicators together to build a broader understanding of the user's health pattern.
-
-The system focuses on three main questions:
+The platform addresses three fundamental questions:
 
 1. What is normal for this user?
-2. Has the user's health pattern changed?
-3. Could the change represent an early health risk?
+2. How has the user's health pattern changed?
+3. Could these changes indicate a potential health risk?
 
-The goal is to transform daily health data into meaningful and understandable preventive intelligence.
+The objective is to transform daily measurements into understandable, data-driven preventive insights.
 
 ---
 
-## Core Features
+## 2. Key Features
 
-### Early Risk Analysis
-Machine-learning models estimate potential health risks using multiple health and lifestyle indicators.
+### Predictive Health Risk Analysis
+
+Machine-learning models evaluate health and lifestyle indicators to estimate potential health risks.
+
+The experimental prediction modules include:
+
+- Diabetes risk estimation
+- Dehydration risk estimation
 
 ### Personal Health Baseline
-The system calculates a personalized baseline from historical health data and compares new measurements against the user's normal pattern.
+
+The platform establishes a personal baseline using available historical measurements and compares new observations against the user's typical patterns.
 
 ### Anomaly Detection
-Unusual combinations of health measurements can be identified using anomaly-detection techniques.
+
+Anomaly-detection techniques identify unusual combinations of health indicators that may require attention.
 
 ### Health Trend Analysis
-Waqaya AI analyzes changes in health indicators over time instead of relying only on individual measurements.
+
+The system analyzes changes in health indicators over time rather than relying exclusively on individual measurements.
 
 ### Explainable AI
-Feature importance helps explain which health indicators contributed most strongly to the model's analysis.
+
+Feature-importance analysis helps users understand which input indicators contribute to model predictions.
 
 ### Preventive Insights
-The platform generates understandable preventive insights based on the user's measurements, lifestyle indicators, and detected patterns.
+
+The platform generates educational, data-driven observations based on measurements, risk estimates, and detected patterns.
 
 ### Interactive Health Dashboard
-The dashboard provides visual analysis of:
+
+Waqaya AI visualizes indicators including:
 
 - Heart rate
 - Blood pressure
-- Blood oxygen level
+- Blood oxygen saturation (SpO2)
 - Sleep duration
 - Daily steps
-- Water intake
+- Water consumption
 - Urination frequency
-- BMI
+- Body Mass Index (BMI)
 - Health trends
-- Risk indicators
+- Estimated risk indicators
 
 ### Diabetes Monitoring
-Users with diabetes can manually record glucose readings and review them through tables and visual charts.
+
+Users can manually enter glucose readings and review the recorded measurements through tables and interactive charts.
 
 ### Calorie and Nutrition Calculator
-The platform estimates:
+
+The application provides estimates for:
 
 - Basal Metabolic Rate (BMR)
 - Total Daily Energy Expenditure (TDEE)
-- Daily calorie targets
+- Daily calorie requirements
 - Macronutrient distribution
 
 ### Health Knowledge Search
-Users can search common health conditions and symptoms to view educational information about associated symptoms, causes, and risk factors.
 
-### Bilingual Interface
-The platform supports both Arabic and English.
+An educational search feature provides information about common health conditions, symptoms, possible causes, and associated risk factors.
 
----
+### Bilingual User Interface
 
-## Machine Learning Architecture
-
-The machine-learning layer is separated from the user interface through the `WaqayaEngine` architecture.
-
-The engine is responsible for:
-
-- Loading trained models
-- Preparing input features
-- Risk prediction
-- Personal baseline calculation
-- Baseline deviation analysis
-- Anomaly detection
-- Trend analysis
-- Feature-importance extraction
-- Early-risk score calculation
-
-This modular architecture makes the system easier to maintain, test, and extend.
+The application supports Arabic and English to improve accessibility and usability.
 
 ---
 
-## Model Features
+## 3. Dataset
 
-The analytical engine currently processes the following features:
+The project was developed using an experimental synthetic dataset containing:
+
+**10,000 records and 15 columns**
+
+The data represents simulated demographic, lifestyle, and health measurements.
+
+The machine-learning engine uses features including:
 
 ```text
 age
@@ -117,129 +128,383 @@ urination
 bmi
 ```
 
+### Data Preparation
+
+The development workflow involved:
+
+- Data generation and preparation
+- Data quality and consistency checks
+- Exploratory Data Analysis (EDA)
+- Feature selection and preprocessing
+- Model training and evaluation
+- Integration with the prediction engine
+
+**Note:** The dataset is synthetic and does not represent a clinically validated patient population.
+
 ---
 
-## Technology Stack
+## 4. Machine Learning Performance
 
-**Machine Learning**
-- Scikit-learn
-- Joblib
-- Isolation Forest
-- Supervised Machine Learning
+Waqaya AI includes experimental machine-learning models developed to estimate health-related risks using multiple input indicators.
 
-**Data Analysis**
+### Model Evaluation Results
+
+| Model | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
+|---|---:|---:|---:|---:|---:|
+| Diabetes Risk | 83.85% | 45.34% | 37.33% | 0.410 | 0.778 |
+| Dehydration Risk | 88.90% | 81.55% | 73.64% | 0.774 | 0.887 |
+
+### Performance Interpretation
+
+**Diabetes Risk Model**
+
+- Achieved 83.85% accuracy.
+- Obtained a ROC-AUC score of 0.778.
+- Demonstrated limitations in precision and recall, indicating the need for further improvement before any real-world use.
+
+**Dehydration Risk Model**
+
+- Achieved 88.90% accuracy.
+- Obtained a ROC-AUC score of 0.887.
+- Demonstrated stronger classification performance on the experimental dataset.
+
+These results describe evaluation on synthetic data only.
+
+They do not demonstrate clinical validity, diagnostic accuracy in real patients, or suitability for medical decision-making.
+
+---
+
+## 5. Machine Learning Architecture
+
+Waqaya AI separates the analytical engine from the application interface through a modular architecture.
+
+The `WaqayaEngine` component is responsible for:
+
+- Loading trained machine-learning models
+- Preparing and validating input features
+- Generating risk predictions
+- Establishing personal health baselines
+- Measuring deviations from baseline values
+- Detecting anomalous observations
+- Analyzing health trends
+- Extracting feature-importance information
+- Calculating early-risk indicators
+
+### Application Workflow
+
+```text
+User Health Inputs
+        |
+        v
+Data Preparation
+        |
+        v
+Feature Processing
+        |
+        v
+Machine Learning Engine
+        |
+        +--------------------+
+        |                    |
+        v                    v
+Risk Prediction      Anomaly Detection
+        |                    |
+        +---------+----------+
+                  |
+                  v
+       Baseline and Trend Analysis
+                  |
+                  v
+        Explainable Insights
+                  |
+                  v
+       Interactive Dashboard
+```
+
+The modular design supports maintainability and future development.
+
+---
+
+## 6. Technology Stack
+
+### Programming and Data Analysis
+
 - Python
 - Pandas
 - NumPy
 
-**Visualization**
+### Machine Learning
+
+- Scikit-learn
+- Joblib
+- Supervised machine learning
+- Isolation Forest
+
+### Data Visualization
+
 - Plotly
 
-**Application**
+### Application Development
+
 - Streamlit
 
-**Development and Version Control**
+### Development and Version Control
+
 - Visual Studio Code
 - Git
 - GitHub
 
+### Cloud Deployment
+
+- Streamlit Community Cloud
+
 ---
 
-## Project Structure
+## 7. Project Structure
 
 ```text
 Waqaya-Ai/
-│
-├── app.py
-├── waqaya_engine.py
-├── waqaya_models.pkl
-├── generate_data.py
-├── train_model.py
-├── waqaya_health_data.csv
-├── requirements.txt
-│
-├── models/
-├── Data/
-└── notebooks/
+|
+|-- app.py
+|-- waqaya_engine.py
+|-- waqaya_models.pkl
+|-- generate_data.py
+|-- train_model.py
+|-- waqaya_health_data.csv
+|-- requirements.txt
+|-- README.md
+|
+|-- models/
+|-- Data/
+|-- notebooks/
 ```
+
+### Main Components
+
+**app.py**  
+Implements the interactive user interface, dashboards, user inputs, and visualization components.
+
+**waqaya_engine.py**  
+Contains the analytical functionality supporting machine-learning inference and health-pattern analysis.
+
+**train_model.py**  
+Supports machine-learning model training and evaluation.
+
+**generate_data.py**  
+Supports synthetic dataset generation.
+
+**waqaya_models.pkl**  
+Stores serialized machine-learning model artifacts.
+
+**requirements.txt**  
+Defines the Python package dependencies required to run the application.
 
 ---
 
-## Installation
+## 8. Data Science Workflow
 
-Clone the repository:
+The project follows a structured machine-learning development lifecycle.
+
+```text
+Problem Definition
+        |
+        v
+Synthetic Data Generation
+        |
+        v
+Data Preparation
+        |
+        v
+Exploratory Data Analysis
+        |
+        v
+Feature Engineering
+        |
+        v
+Model Development
+        |
+        v
+Model Evaluation
+        |
+        v
+Risk Analysis
+        |
+        v
+Explainable AI
+        |
+        v
+Application Development
+        |
+        v
+Cloud Deployment
+```
+
+This workflow demonstrates the integration of data science, machine learning, and application development into a working prototype.
+
+---
+
+## 9. Installation and Local Setup
+
+### Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/HadeelAlshammari111/Waqaya_Ai.git
 ```
 
-Navigate to the project directory:
+### Step 2: Navigate to the Project Directory
 
 ```bash
 cd Waqaya_Ai
 ```
 
-Install the required packages:
+### Step 3: Create a Virtual Environment (Recommended)
+
+```bash
+python -m venv .venv
+```
+
+Activate the environment on Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+For macOS/Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+### Step 4: Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the application:
+### Step 5: Run the Application
 
 ```bash
 streamlit run app.py
 ```
 
-The application will open in your web browser.
+The application should open in your default web browser.
 
 ---
 
-## Requirements
+## 10. Cloud Deployment
 
-The main Python dependencies include:
+Waqaya AI is deployed through Streamlit Community Cloud with source code managed on GitHub.
 
-```text
-streamlit
-pandas
-numpy
-plotly
-scikit-learn
-joblib
-```
+### Deployment Configuration
 
----
+| Component | Configuration |
+|---|---|
+| Platform | Streamlit Community Cloud |
+| Repository | HadeelAlshammari111/Waqaya_Ai |
+| Branch | main |
+| Application Entry Point | app.py |
+| Framework | Streamlit |
+| Language | Python |
 
-## Data Science Workflow
+### Access the Application
 
-The development of Waqaya AI follows a structured data-science workflow:
+**[Open Waqaya AI — Live Application](https://waqiya-ai-app.streamlit.app)**
 
-```text
-Problem Definition
-        ↓
-Data Collection
-        ↓
-Data Preparation
-        ↓
-Exploratory Data Analysis
-        ↓
-Feature Engineering
-        ↓
-Machine Learning
-        ↓
-Model Evaluation
-        ↓
-Risk Analysis
-        ↓
-Explainable AI
-        ↓
-Preventive Insights
-        ↓
-Interactive Application
-```
+The deployed application allows visitors to explore the interactive prototype without configuring a local Python environment.
 
 ---
 
-## Project Objective
+## 11. Application Screenshots
 
-Waqaya AI explores how artificial intelligence and data science can move health applications beyond passive monitoring toward **preventive health
+The following application sections demonstrate the platform's primary functionality:
+
+- Home and preventive health overview
+- Interactive health dashboard
+- Risk analysis results
+- Health trends and baseline comparison
+- Preventive insights
+
+For the current interactive interface, visit:
+
+**[Explore the Live Application](https://waqiya-ai-app.streamlit.app)**
+
+---
+
+## 12. Current Limitations
+
+Waqaya AI is an experimental prototype with several important limitations:
+
+- The training and evaluation data is synthetic.
+- Model performance has not been clinically validated.
+- Predictions may not generalize to real-world populations.
+- The diabetes model demonstrates limited recall in its experimental evaluation.
+- Model outputs should not be interpreted as medical diagnoses.
+- Educational insights do not replace professional medical consultation.
+
+These limitations provide opportunities for further research and model development.
+
+---
+
+## 13. Future Development
+
+Potential directions for future improvements include:
+
+- Evaluation using appropriately sourced real-world datasets
+- Improving model generalization and recall
+- More extensive model calibration and validation
+- Expanded explainability and model monitoring
+- Improved mobile responsiveness and accessibility
+- Integration with supported wearable-device data
+- Enhanced time-series analysis
+- Improved privacy and security controls
+
+Any future real-world health-data integration would require appropriate consent, privacy safeguards, and validation.
+
+---
+
+## 14. Project Impact
+
+Waqaya AI demonstrates how Data Science and Machine Learning can be integrated into an interactive preventive-health analytics prototype.
+
+The project brings together:
+
+- Data preparation and feature engineering
+- Predictive modeling
+- Experimental model evaluation
+- Anomaly detection
+- Explainable AI
+- Interactive data visualization
+- Full application development
+- Cloud deployment
+
+The overall objective is to explore how health-related data can be transformed into understandable insights through artificial intelligence.
+
+---
+
+## 15. Developer
+
+**Hadeel Mohammad Alshammari**
+
+Data Science | Machine Learning | Artificial Intelligence
+
+**GitHub:** [HadeelAlshammari111](https://github.com/HadeelAlshammari111)
+
+**Project Repository:** [Waqaya AI](https://github.com/HadeelAlshammari111/Waqaya_Ai)
+
+**Live Application:** [Waqaya AI on Streamlit](https://waqiya-ai-app.streamlit.app)
+
+---
+
+## Medical and Research Disclaimer
+
+Waqaya AI is an experimental educational and research prototype.
+
+It is not a certified medical device and is not intended to diagnose, treat, cure, or prevent medical conditions.
+
+All machine-learning performance metrics were obtained from experimental evaluation using synthetic data.
+
+Users should not rely on the platform for clinical decisions or as a replacement for qualified healthcare professionals.
+
+---
+
+**Waqaya AI — Turning Health Data into Preventive Intelligence.**
