@@ -1441,6 +1441,26 @@ hr {
     color: #10243F !important;
 }
 
+
+/* Make Yes / No radio option captions readable on light backgrounds. */
+[data-testid="stMain"] [data-testid="stRadio"] label,
+[data-testid="stMain"] [data-testid="stRadio"] label p,
+[data-testid="stMain"] [data-testid="stRadio"] label span,
+[data-testid="stMain"] [data-testid="stRadio"] [data-testid="stMarkdownContainer"],
+[data-testid="stMain"] [data-testid="stRadio"] [data-testid="stMarkdownContainer"] p,
+[data-testid="stMain"] [role="radiogroup"] label,
+[data-testid="stMain"] [role="radiogroup"] label p,
+[data-testid="stMain"] [role="radiogroup"] label span {
+    color: #10243F !important;
+    -webkit-text-fill-color: #10243F !important;
+    opacity: 1 !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+}
+[data-testid="stMain"] [data-testid="stRadio"] [role="radiogroup"] {
+    gap: 1.4rem;
+}
+
 </style>
 """)
 
